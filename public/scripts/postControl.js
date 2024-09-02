@@ -2,7 +2,7 @@ $(document).ready(function () {
   let ip = location.host;
   console.log(ip);
 
-  const addPost = $('.addPost');
+  let addPost = $('.addPost');
 
   let link = `<a href="http://${ip}/book-post" class="direct"> Add new Location</a>`;
 
@@ -73,7 +73,7 @@ $(document).ready(function () {
 
   function postBooking(booking) {
     $.post(`http://${ip}/book-post`, booking);
-    console.log(ip + 'line  47');
+    console.log(ip + ' line  47');
   }
   function redirect() {
     window.location.href = `http://${ip}/book`;

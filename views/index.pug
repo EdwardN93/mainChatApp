@@ -1,0 +1,112 @@
+doctype html 
+head
+    title FulguTsChat
+    meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+    script(src='https://code.jquery.com/jquery-1.12.3.min.js' integrity='sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=' crossorigin='anonymous')
+    
+    link(rel='stylesheet', href='/css/style.css')
+
+.textContent
+  .textWindow
+    .messages
+        each chats in chat   
+            - let text = chats.text
+            p(class=`messenger ${chats.name == 'edwy'? 'edwy' : 'fulgutsa'}` ).
+                #[span(class=`${chats.name === 'edwy' ? 'userNameReceiver' : 'userNameSender'}`) #{chats.name}]
+                #{chats.text}
+                #[span(class=`messageHours`) #{chats.createdAt}]
+  .inputText
+    .fallback
+    .formName
+        input.show(type="text" placeholder="Your name" enterkeyhint="done")
+    input.inpText(type='text' placeholder='Write something...')
+
+    script(type="text/javascript" src='/socket.io/socket.io.js').
+        let socket = io('http://127.0.0.1:3000/api/chat')
+        socket.on('newMessage')
+    
+    script(type='text/javascript' src='/scripts/control.js')
+    //- script.
+        //- $(document).ready(function(){
+            
+        //-     getMessages()
+            
+        //-     //- let socket = io();
+        //-     //- socket.on('message', addMessages);
+
+        //-     let user = '';
+        //-     let userClass = '';
+        //-     let placeholder = $('.inpText');
+
+        //-     $('.edwyn').on('click', function () {
+        //-     user = 'Edwynn';
+        //-     userClass = 'edwy';
+        //-     placeholder.attr('placeholder', user);
+        //-     });
+
+        //-     $('.fulguts').on('click', function () {
+        //-     user = 'Fulgutsa';
+        //-     userClass = 'fulgutsa';
+        //-     placeholder.attr('placeholder', user);
+        //-     });
+
+        //-     // Write in chat
+
+        //-     $('.inpText').on('keypress', function (e) {
+        //-     let message = $('.inpText').val();
+        //-     let currentDate = new Date();
+        //-     let minutes = String(currentDate.getMinutes());
+        //-     let hours = String(currentDate.getHours());
+
+        //-     if (e.which == 13) {
+        //-         if (message == '') {
+        //-         return;
+        //-         }
+        //-         sendMessage({
+        //-             name: userClass,
+        //-             text: message,
+        //-         })
+        //-         // alert('You pressed enter!');
+
+        //-         //- if (hours.length < 2) hours = '0' + hours;
+        //-         //- if (minutes.length < 2) minutes = '0' + minutes;
+        //-         //- $('.messages').append(
+        //-         //- `<p class="messenger ${userClass}"><span class="${
+        //-         //-     userClass == 'edwy' ? 'userNameReceiver' : 'userNameSender'
+        //-         //- }">${user}</span>${message}<span class="messageHours">${hours}:${minutes}</span></p>`
+        //-         //- );
+
+        //-         console.log(message);
+        //-         $('.inpText').val('');
+        //-         // $('.textContent').scrollTop = $('.textContent').scrollHeight;
+        //-         window.scrollTo(0, document.body.scrollHeight);
+
+        //-     }
+                
+
+        //-         function sendMessage(message){
+        //-         $.post('http://localhost:3000/api/chat', message)
+        //-         }
+        //-     });
+        //-     function getMessages(){
+        //-         $.get(, (data) => {
+        //-             //-     $('.messages').append(
+        //-             //-     `<p class="messenger ${data.name}"><span class="${
+        //-             //-      data.name == 'edwy' ? 'userNameReceiver' : 'userNameSender'
+        //-             //-     }">${data.name}</span>${data.text}<span class="messageHours">${data.createdAt}</span></p>`
+        //-             //- );
+        //-             console.log(data)
+        //-             })
+        //-         }
+            
+            
+
+        //- })
+    
+        
+    
+    
+  
+    //- link(rel='stylesheet', type='text/css', href='./public/css/style.css')
+
+

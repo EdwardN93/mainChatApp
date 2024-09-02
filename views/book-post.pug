@@ -1,0 +1,54 @@
+doctype html 
+head
+    meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+    title Post
+    script(src='https://code.jquery.com/jquery-1.12.3.min.js' integrity='sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=' crossorigin='anonymous')
+    
+    link(rel='stylesheet', href='/css/style.css')
+body#postBody
+
+    .addForm
+        .userDetails
+            fieldset.details
+                legend User Details
+                label(for='Name') First Name
+                input(type='text' name='Name' class="fname")
+                label(for='Name') Second Name
+                input(type='text' name='Name' class="sname")
+                label(for='Email') Your Email
+                input(type='email' name='Email' class="email")
+        .bookingDetails
+            fieldset.details
+                legend Location details
+                label(for='Location') Location Name
+                input(type="text" name='Location' class="location")
+                label(for='Description') Location Description
+                textarea(name='Description' class="description"  rows="4" cols="50")
+                label(for='Address') Location address
+                input(type='text' name='Address' class="address")
+                .facilities
+                    .facility 
+                        label(for='Facilities') Facilities
+                        //- input(type='text' name='Facilities' class="facilities")
+                    .balcony    
+                        input(type="checkbox" name="balcony" id="balcony" value="Balcony")
+                        label(for='balcony') Balcony
+                    .breakfast
+                        input(type="checkbox" name="breakfast" id="breakfast" value="Breakfast") 
+                        label(for='breakfast') Breakfast
+                    .freeCancellation
+                        input(type="checkbox" name="freeCancellation" id="freeCancellation" value="Free Cancellation") 
+                        label(for='freeCancellation') Free Cancelation
+                    .noPrepayment
+                        input(type="checkbox" name="noPrepayment" id="noPrepayment" value="No Prepayment") 
+                        label(for='noPrepayment') No prepayment needed
+                    .petFriendly
+                        input(type="checkbox" name="petFriendly" id="petFriendly" value="Pet Friendly") 
+                        label(for='petFriendly') Pet Friendly
+                label(for='Price') Price per night
+                input(type='number' name='Price' class="price")
+        button.addPost Add Post
+    
+script(type='text/javascript' src='/scripts/postControl.js')
+
+

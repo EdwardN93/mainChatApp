@@ -1,0 +1,32 @@
+doctype html 
+head
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title BookEr
+    script(src='https://code.jquery.com/jquery-1.12.3.min.js' integrity='sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=' crossorigin='anonymous')
+    
+    link(rel='stylesheet', href='/css/style.css')
+body#booking
+    .window-bookings
+        a(href class="direct") Add new Location
+        each books in book
+            - let title = books.locationName
+            - let author = books.name
+            - let description = books.description
+            - let address = books.locationAddress
+            - let facilities = books.facilities
+            - let price = books.price
+            .booking
+                h2(class="title") #{title}
+                //- p(class="author") Posted by #{author}
+                p(class="description") Description: #{description}
+                p(class="address") Address: #{address}
+                p(class="facilities") Facilities: #{facilities}
+                p(class="price") Price per night: #{price} lei 
+                button.visit Visit locations
+ 
+    script.
+        let ip = location.host
+        $('.direct').attr('href', `http://${ip}/book-post`)
+    //- script(type='text/javascript' src='/scripts/control.js')
+
+
